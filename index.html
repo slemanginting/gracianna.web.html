@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sorry, would u forgive me?? 💗</title>
+  <meta name="description" content="Sebuah permintaan maaf kecil yang dibuat khusus untuk kamu." />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@400;600;700;800;900&display=swap');
+
+    :root{
+      --pink:#ff5f87;
+      --pink2:#ff91ab;
+      --soft:#fff0f5;
+      --text:#633444;
+      --muted:#956071;
+      --white:rgba(255,255,255,.86);
+      --shadow:0 18px 55px rgba(187,76,112,.16);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--text);
+      font-family:"Nunito",sans-serif;
+      background:
+        radial-gradient(circle at 15% 12%, rgba(255,255,255,.95) 0 55px, transparent 56px),
+        radial-gradient(circle at 84% 22%, rgba(255,255,255,.8) 0 80px, transparent 81px),
+        linear-gradient(180deg,#fff4f7 0%,#ffe9f0 48%,#fff7f9 100%);
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:"";
+      position:fixed; inset:0; pointer-events:none; z-index:1;
+      opacity:.35;
+      background-image:
+        linear-gradient(rgba(255,150,175,.08) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,150,175,.08) 1px,transparent 1px);
+      background-size:34px 34px;
+    }
+
+    .browser{
+      min-height:100vh;
+      position:relative;
+      z-index:2;
+      overflow:hidden;
+    }
+
+    .topbar{
+      height:70px;
+      display:flex;
+      align-items:center;
+      gap:18px;
+      padding:0 28px;
+      background:rgba(255,255,255,.7);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(255,125,157,.18);
+      position:sticky; top:0; z-index:20;
+    }
+    .dots{display:flex;gap:8px}
+    .dot{width:13px;height:13px;border-radius:50%}
+    .d1{background:#ff607d}.d2{background:#a9cf45}.d3{background:#ef9ab2}
+    .address{
+      flex:1; max-width:830px; margin:auto;
+      height:42px; border-radius:24px;
+      background:rgba(255,240,245,.9);
+      display:flex;align-items:center;justify-content:center;gap:10px;
+      color:#754052;font-weight:800;font-size:14px;
+      box-shadow:inset 0 0 0 1px rgba(255,122,151,.1);
+    }
+    .music{
+      border:0; background:#fff; color:#7c4053;
+      padding:11px 16px; border-radius:22px;
+      font-weight:900; cursor:pointer; box-shadow:0 8px 20px rgba(200,85,120,.12);
+      transition:.2s;
+    }
+    .music:hover{transform:translateY(-2px)}
+
+    main{position:relative}
+    .hero{
+      min-height:calc(100vh - 70px);
+      padding:65px 20px 30px;
+      display:flex; flex-direction:column; align-items:center; text-align:center;
+      position:relative;
+    }
+
+    .spark{position:absolute;animation:twinkle 2.3s infinite ease-in-out}
+    .s1{left:8%;top:18%;font-size:24px}.s2{right:12%;top:30%;font-size:28px;animation-delay:.6s}
+    .s3{left:18%;top:48%;font-size:20px;animation-delay:1s}.s4{right:20%;top:54%;font-size:22px;animation-delay:1.4s}
+
+    h1{
+      margin:0;
+      font-family:"Baloo 2",cursive;
+      font-size:clamp(52px,8vw,92px);
+      line-height:.95;
+      color:#6d2f43;
+      text-shadow:0 5px 0 #ffd2de;
+      animation:pop .8s both;
+    }
+    .subtitle{
+      margin:20px 0 0;
+      font-size:clamp(17px,2.4vw,23px);
+      line-height:1.65;
+      font-weight:700;
+      max-width:760px;
+      animation:fadeUp .8s .15s both;
+    }
+
+    .scene{
+      width:min(760px,95vw);
+      height:390px;
+      margin:25px auto 0;
+      position:relative;
+      display:flex;align-items:flex-end;justify-content:center;
+    }
+
+    .cloud{
+      position:absolute;bottom:0;width:260px;height:75px;
+      background:#fff;filter:drop-shadow(0 10px 15px rgba(200,110,140,.08));
+      border-radius:70px 70px 30px 30px;
+    }
+    .cloud::before,.cloud::after{
+      content:"";position:absolute;background:#fff;border-radius:50%;
+    }
+    .cloud::before{width:105px;height:105px;left:32px;top:-42px}
+    .cloud::after{width:135px;height:135px;right:30px;top:-66px}
+    .c1{left:-70px}.c2{right:-70px;transform:scale(.9)}
+
+    .character{
+      position:relative;z-index:3;width:255px;height:305px;
+      animation:bob 3s ease-in-out infinite;
+    }
+    .hair{
+      position:absolute;top:12px;left:34px;width:188px;height:122px;
+      background:#5c3c39;border-radius:53% 47% 43% 52%;
+      transform:rotate(-2deg);
+    }
+    .hair::before{
+      content:"";position:absolute;left:-10px;top:58px;width:210px;height:78px;
+      background:#5c3c39;border-radius:50%;
+    }
+    .head{
+      position:absolute;left:42px;top:66px;width:170px;height:165px;
+      background:#ffd8c6;border-radius:48% 52% 47% 53%;
+      box-shadow:inset 0 -7px rgba(220,130,125,.12);
+    }
+    .ear{position:absolute;width:28px;height:42px;background:#ffd0be;border-radius:50%;top:130px}
+    .ear.l{left:29px}.ear.r{right:29px}
+    .eye{
+      position:absolute;top:132px;width:35px;height:42px;background:#fff;border-radius:50%;
+      border:3px solid #493337;
+    }
+    .eye::after{content:"";position:absolute;width:16px;height:22px;background:#493337;border-radius:50%;left:8px;top:10px}
+    .eye.l{left:72px}.eye.r{right:72px}
+    .tear{position:absolute;width:9px;height:20px;background:#74c9e9;border-radius:60% 40% 60% 40%;top:169px;animation:tear 1.8s infinite}
+    .tear.l{left:75px}.tear.r{right:75px;animation-delay:.8s}
+    .mouth{
+      position:absolute;left:111px;top:190px;width:38px;height:20px;
+      border:4px solid #9e5260;border-top:0;border-radius:0 0 50px 50px;
+    }
+    .body{
+      position:absolute;left:55px;bottom:20px;width:150px;height:112px;
+      background:#fff;border-radius:55px 55px 25px 25px;
+    }
+    .heart{
+      position:absolute;z-index:5;left:80px;top:202px;
+      width:110px;height:96px;background:#ff5f87;transform:rotate(-45deg);
+      border-radius:18px;box-shadow:0 12px 25px rgba(255,95,135,.3);
+      animation:heartBeat 1.4s infinite;
+    }
+    .heart:before,.heart:after{content:"";position:absolute;width:96px;height:96px;background:#ff5f87;border-radius:50%}
+    .heart:before{top:-48px;left:0}.heart:after{left:48px;top:0}
+    .heart span{
+      position:absolute;z-index:2;transform:rotate(45deg);color:white;font-family:"Baloo 2";
+      font-size:20px;font-weight:800;width:105px;text-align:center;left:0;top:34px;
+    }
+
+    .cat{
+      position:absolute;z-index:4;right:calc(50% - 290px);bottom:30px;
+      width:130px;height:120px;animation:catBob 2.8s infinite ease-in-out;
+    }
+    .cat-body{position:absolute;bottom:0;left:18px;width:95px;height:85px;background:#fff;border-radius:50px 50px 25px 25px;border:2px solid #f1c7d2}
+    .cat-head{position:absolute;top:10px;left:10px;width:105px;height:90px;background:#fff;border-radius:50%;border:2px solid #f1c7d2}
+    .cat-head:before,.cat-head:after{
+      content:"";position:absolute;top:-18px;width:35px;height:40px;background:#fff;border:2px solid #f1c7d2;
+    }
+    .cat-head:before{left:5px;transform:rotate(-28deg);clip-path:polygon(0 100%,50% 0,100% 100%)}
+    .cat-head:after{right:5px;transform:rotate(28deg);clip-path:polygon(0 100%,50% 0,100% 100%)}
+    .cat-eye{position:absolute;top:47px;width:9px;height:12px;background:#633444;border-radius:50%}
+    .cat-eye.l{left:32px}.cat-eye.r{right:32px}
+    .cat-mouth{position:absolute;left:47px;top:60px;width:14px;height:8px;border-bottom:2px solid #633444;border-radius:0 0 10px 10px}
+    .blush{position:absolute;top:59px;width:18px;height:8px;background:#ffb2c5;border-radius:50%;opacity:.7}
+    .blush.l{left:15px}.blush.r{right:15px}
+
+    .card{
+      width:min(850px,92vw);
+      background:var(--white);backdrop-filter:blur(15px);
+      border:2px solid rgba(255,142,170,.3);
+      border-radius:32px;padding:30px;
+      box-shadow:var(--shadow);
+      position:relative;z-index:5;
+    }
+    .card h2{font-family:"Baloo 2";font-size:32px;margin:0 0 18px;color:#733347}
+    .buttons{display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
+    .btn{
+      border:0;border-radius:20px;padding:16px 28px;
+      font-family:"Nunito";font-size:17px;font-weight:900;cursor:pointer;
+      transition:transform .18s,box-shadow .18s;
+    }
+    .btn:hover{transform:translateY(-4px)}
+    .yes{background:#ff5f87;color:#fff;box-shadow:0 10px 25px rgba(255,95,135,.3)}
+    .no{background:#fff;color:#744354;border:2px solid #f2dce3;position:relative}
+    .hint{font-size:13px;color:#9b6575;margin-top:14px;font-weight:800}
+
+    .reasons{
+      padding:80px 20px 30px;
+      display:flex;justify-content:center;
+    }
+    .reason-card{width:min(1000px,94vw);text-align:center}
+    .reason-card h2{font:700 38px "Baloo 2";margin:0 0 5px}
+    .reason-card > p{color:var(--muted);font-weight:700}
+    .grid{display:grid;grid-template-columns:repeat(5,1fr);gap:13px;margin-top:25px}
+    .reason{
+      background:rgba(255,255,255,.7);border:1px solid #f5d3dd;border-radius:22px;
+      padding:23px 12px;min-height:145px;display:flex;flex-direction:column;justify-content:center;
+      transition:.25s;
+    }
+    .reason:hover{transform:translateY(-8px) rotate(1deg);box-shadow:var(--shadow)}
+    .reason b{font-size:14px;line-height:1.45}.emoji{font-size:34px;margin-bottom:8px}
+
+    footer{text-align:center;padding:70px 20px 90px;color:#9a6171;font-weight:800}
+    .gift{
+      position:fixed;right:24px;bottom:22px;width:74px;height:74px;border-radius:50%;
+      border:0;background:#ff5f87;color:#fff;font-size:29px;cursor:pointer;z-index:30;
+      box-shadow:0 12px 30px rgba(255,95,135,.35);animation:pulse 2s infinite;
+    }
+    .gift small{display:block;font-size:9px;font-weight:900;margin-top:-2px}
+
+    .floating{position:fixed;z-index:3;pointer-events:none;animation:floatUp linear forwards}
+    .toast{
+      position:fixed;left:50%;top:24px;transform:translate(-50%,-150%);
+      z-index:100;background:#fff;padding:16px 22px;border-radius:18px;
+      box-shadow:var(--shadow);font-weight:900;text-align:center;transition:.45s;
+      max-width:min(90vw,500px);
+    }
+    .toast.show{transform:translate(-50%,0)}
+
+    .modal{
+      position:fixed;inset:0;background:rgba(75,33,49,.45);backdrop-filter:blur(7px);
+      z-index:90;display:none;align-items:center;justify-content:center;padding:20px;
+    }
+    .modal.show{display:flex}
+    .modal-box{
+      width:min(520px,95vw);background:#fff8fa;border-radius:30px;padding:35px;text-align:center;
+      box-shadow:0 30px 90px rgba(55,20,34,.25);animation:pop .35s both;
+    }
+    .modal-box .big{font-size:72px}
+    .modal-box h2{font:800 36px "Baloo 2";margin:5px 0}
+    .close{margin-top:18px}
+
+    .confetti{position:fixed;z-index:110;width:10px;height:18px;top:-30px;animation:confetti 2.5s ease-in forwards;pointer-events:none}
+
+    @keyframes pop{from{opacity:0;transform:scale(.7) translateY(20px)}to{opacity:1;transform:none}}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:none}}
+    @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+    @keyframes catBob{0%,100%{transform:rotate(-2deg) translateY(0)}50%{transform:rotate(3deg) translateY(-8px)}}
+    @keyframes heartBeat{0%,100%{transform:rotate(-45deg) scale(1)}12%{transform:rotate(-45deg) scale(1.08)}24%{transform:rotate(-45deg) scale(1)}}
+    @keyframes tear{0%,100%{transform:translateY(0);opacity:.5}50%{transform:translateY(9px);opacity:1}}
+    @keyframes twinkle{0%,100%{opacity:.35;transform:scale(.8) rotate(0)}50%{opacity:1;transform:scale(1.2) rotate(15deg)}}
+    @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+    @keyframes floatUp{from{transform:translateY(0) rotate(0);opacity:0}10%{opacity:1}to{transform:translateY(-110vh) rotate(360deg);opacity:0}}
+    @keyframes confetti{to{transform:translate(var(--x),110vh) rotate(720deg);opacity:0}}
+
+
+    .page-two{
+      min-height:calc(100vh - 70px);
+      display:none;
+      padding:70px 20px 100px;
+      position:relative;
+      opacity:0;
+      transform:translateY(30px);
+    }
+    .page-two.active{
+      display:block;
+      animation:pageIn .8s ease forwards;
+    }
+    .page-two-inner{
+      width:min(820px,94vw);
+      margin:auto;
+    }
+    .letter-card{
+      background:rgba(255,255,255,.88);
+      backdrop-filter:blur(18px);
+      border:2px solid rgba(255,142,170,.28);
+      border-radius:34px;
+      padding:42px clamp(24px,6vw,65px);
+      box-shadow:0 22px 70px rgba(187,76,112,.16);
+      position:relative;
+      overflow:hidden;
+    }
+    .letter-card::before{
+      content:"";
+      position:absolute;
+      width:250px;height:250px;
+      right:-100px;top:-100px;
+      border-radius:50%;
+      background:rgba(255,174,196,.18);
+    }
+    .letter-card::after{
+      content:"";
+      position:absolute;
+      width:180px;height:180px;
+      left:-90px;bottom:-90px;
+      border-radius:50%;
+      background:rgba(255,211,223,.25);
+    }
+    .letter-heart{
+      font-size:48px;
+      animation:heartBeat 1.5s infinite;
+      width:max-content;
+      margin:0 auto 8px;
+    }
+    .letter-label{
+      text-align:center;
+      text-transform:uppercase;
+      letter-spacing:3px;
+      font-size:11px;
+      font-weight:900;
+      color:#c07a8d;
+      margin-bottom:4px;
+    }
+    .letter-card h2{
+      text-align:center;
+      font:800 clamp(42px,7vw,62px) "Baloo 2";
+      margin:0 0 26px;
+      color:#6d2f43;
+    }
+    .letter-card p{
+      font-size:17px;
+      line-height:1.85;
+      font-weight:600;
+      color:#704555;
+      margin:0 0 19px;
+      position:relative;
+      z-index:2;
+    }
+    .once-again{
+      text-align:center;
+      font:800 clamp(24px,4vw,34px) "Baloo 2";
+      color:#ff5f87;
+      margin:32px 0 24px;
+      position:relative;
+      z-index:2;
+    }
+    .back-btn{
+      display:block;
+      margin:0 auto;
+      position:relative;
+      z-index:2;
+    }
+    .hero.hidden{
+      display:none;
+    }
+    .page-two.active ~ .reasons{
+      display:none;
+    }
+    @keyframes pageIn{
+      from{opacity:0;transform:translateY(30px)}
+      to{opacity:1;transform:translateY(0)}
+    }
+
+    @media(max-width:800px){
+      .topbar{padding:0 12px;height:62px}.dots{display:none}.address{font-size:12px}
+      .music{padding:9px 10px;font-size:11px}
+      .hero{padding-top:45px}.scene{height:340px;transform:scale(.88);margin-left:-6%;margin-right:-6%}
+      .cat{right:calc(50% - 240px)}
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .reason:last-child{grid-column:1/-1}
+    }
+    @media(max-width:500px){
+      h1{font-size:51px}.subtitle{font-size:15px}.scene{transform:scale(.67);height:260px;margin-top:0}
+      .card{padding:22px 15px}.card h2{font-size:26px}.btn{width:100%}
+      .grid{grid-template-columns:1fr 1fr}.reason{min-height:125px}
+      .gift{right:15px;bottom:15px;width:64px;height:64px}
+    }
+  </style>
+</head>
+<body>
+<div class="browser">
+  <header class="topbar">
+    <div class="dots"><span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span></div>
+    <div class="address">🔒 &nbsp; maafin-aku.com &nbsp; 💗</div>
+    <button class="music" id="musicBtn">🔊 Musik: ON</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <span class="spark s1">✦</span><span class="spark s2">✧</span><span class="spark s3">✦</span><span class="spark s4">♡</span>
+
+      <h1>Sorry, would u forgive me?? 🥺</h1>
+      <p class="subtitle">
+        I really hope you can forgive me 🥺💗
+      </p>
+
+      <div class="scene">
+        <div class="cloud c1"></div><div class="cloud c2"></div>
+        <div class="character" aria-label="Karakter sedang menangis">
+          <div class="hair"></div><div class="head"></div>
+          <div class="ear l"></div><div class="ear r"></div>
+          <div class="eye l"></div><div class="eye r"></div>
+          <div class="tear l"></div><div class="tear r"></div>
+          <div class="mouth"></div><div class="body"></div>
+          <div class="heart"><span>Forgive<br>Me Plz</span></div>
+        </div>
+
+        <div class="cat">
+          <div class="cat-body"></div><div class="cat-head"></div>
+          <span class="cat-eye l"></span><span class="cat-eye r"></span>
+          <span class="cat-mouth"></span><span class="blush l"></span><span class="blush r"></span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Mau maafin aku nggak? 🥺</h2>
+        <div class="buttons">
+          <button class="btn yes" id="yesBtn">💗 I forgive you</button>
+          <button class="btn no" id="noBtn">🥺 Give me a moment</button>
+        </div>
+        <div class="hint">please choose carefully 🥺</div>
+      </div>
+    </section>
+
+    <section class="page-two" id="pageTwo" aria-hidden="true">
+      <div class="page-two-inner">
+        <div class="letter-card">
+          <div class="letter-heart">💗</div>
+          <div class="letter-label">a little message for u</div>
+          <h2>Haii Grac 🤍</h2>
+
+          <p>
+            Haii grac, sorry about last night that made u feel pressure n uncomfortable.
+          </p>
+
+          <p>
+            Semalam niat wa totally cuma pengen tau POV u gmna tentang yang kmrin,
+            cause wa mau learn more about u and understand how you see this thing from
+            ur perspective, so next time i don’t have to worry about it n ga ngerasa
+            janggal.
+          </p>
+
+          <p>
+            Cause ini the first time ngalamin gini jadii wa masih belum tau cara pandang
+            u terhadap ini semua. Thats why wa tnya u semua semalam.
+          </p>
+
+          <p>
+            But maybe cara wa tnyain ke u salahh, jdinya u ngerasa pressure n uncomfortable.
+          </p>
+
+          <p>
+            Hm, u don’t have to feel “belum ready deket sma org” no yaa.
+            Ini bnran pure cmn part darii knowing each other and learn about u,
+            tpi cara wa yg emg salah.
+          </p>
+
+          <p>
+            I promise you won’t have to feel that feelings again for the second time,
+            wa try my bestt. 🤍
+          </p>
+
+          <div class="once-again">ONCE AGAIN, SORRY 🥺💗</div>
+
+          <button class="btn yes back-btn" id="backBtn">💌 Back to the beginning</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Dibuat dengan 💗 khusus untuk kamu yang paling spesial ✨
+  </footer>
+
+  <button class="gift" id="giftBtn" title="Surprise">🎁<small>Surprise!</small></button>
+  <div class="toast" id="toast"></div>
+
+  <div class="modal" id="modal">
+    <div class="modal-box">
+      <div class="big" id="modalEmoji">🥹💗</div>
+      <h2 id="modalTitle">Makasih udah maafin aku!</h2>
+      <p id="modalText">Aku janji bakal berusaha jadi versi terbaik dari diriku. Jangan marah lagi yaa. 🥺</p>
+      <button class="btn yes close" id="closeModal">Peluk virtual dulu 🤗</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(() => {
+  const noBtn = document.getElementById('noBtn');
+  const yesBtn = document.getElementById('yesBtn');
+  const giftBtn = document.getElementById('giftBtn');
+  const modal = document.getElementById('modal');
+  const closeModal = document.getElementById('closeModal');
+  const toast = document.getElementById('toast');
+  const musicBtn = document.getElementById('musicBtn');
+
+  // ==========================
+  // MUDAH DIUBAH DI SINI
+  // ==========================
+  const messages = {
+    no: [
+      "No pressure, take your time 🥺🤍",
+      "I understand. I’ll give you space.",
+      "It’s okay, you don’t have to answer right away 🤍",
+      "Take your time yaa, I understand 🫶"
+    ],
+    yes: {
+      title: "Thank you for forgiving me 🥹💗",
+      text: "I really mean this. I’m sorry about last night."
+    },
+    gift: {
+      title: "A little surprise for you 🎁",
+      text: "A virtual hug, a flower, and one sincere apology. 🤍"
+    }
+  };
+
+  let noCount = 0;
+  let musicOn = true;
+
+  function showToast(text) {
+    toast.textContent = text;
+    toast.classList.add('show');
+    clearTimeout(showToast.timer);
+    showToast.timer = setTimeout(() => toast.classList.remove('show'), 2600);
+  }
+
+  function hearts(count=18) {
+    const icons = ['💗','💖','💕','💘','💝','♡','✨','🌸'];
+    for(let i=0;i<count;i++){
+      const el = document.createElement('div');
+      el.className = 'floating';
+      el.textContent = icons[Math.floor(Math.random()*icons.length)];
+      el.style.left = Math.random()*100 + 'vw';
+      el.style.bottom = (-30 - Math.random()*80) + 'px';
+      el.style.fontSize = (16 + Math.random()*25) + 'px';
+      el.style.animationDuration = (4 + Math.random()*5) + 's';
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 10000);
+    }
+  }
+
+  function confetti(count=80) {
+    for(let i=0;i<count;i++){
+      const el = document.createElement('div');
+      el.className='confetti';
+      el.style.left = Math.random()*100 + 'vw';
+      el.style.setProperty('--x', (Math.random()*300-150)+'px');
+      el.style.animationDelay = Math.random()*.7+'s';
+      el.style.background = ['#ff5f87','#ff9ab2','#ffd166','#8bd3dd','#a7e8bd'][Math.floor(Math.random()*5)];
+      el.style.transform = `rotate(${Math.random()*360}deg)`;
+      document.body.appendChild(el);
+      setTimeout(()=>el.remove(),3300);
+    }
+  }
+
+  function openModal(title, text, emoji='🥹💗') {
+    document.getElementById('modalTitle').textContent = title;
+    document.getElementById('modalText').textContent = text;
+    document.getElementById('modalEmoji').textContent = emoji;
+    modal.classList.add('show');
+  }
+
+  yesBtn.addEventListener('click', () => {
+    confetti(55);
+    hearts(30);
+    const hero = document.querySelector('.hero');
+    const pageTwo = document.getElementById('pageTwo');
+    hero.classList.add('hidden');
+    pageTwo.classList.add('active');
+    pageTwo.setAttribute('aria-hidden', 'false');
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  });
+
+  function moveNoButton() {
+    noCount++;
+    const text = messages.no[(noCount-1) % messages.no.length];
+    showToast(text);
+
+    // Setelah beberapa kali, tombol benar-benar kabur di layar.
+    if(noCount >= 1){
+      const maxX = Math.max(10, window.innerWidth - noBtn.offsetWidth - 20);
+      const maxY = Math.max(80, window.innerHeight - noBtn.offsetHeight - 20);
+      noBtn.style.position = 'fixed';
+      noBtn.style.left = Math.random()*maxX + 'px';
+      noBtn.style.top = (70 + Math.random()*(maxY-70)) + 'px';
+      noBtn.style.zIndex = 80;
+    }
+  }
+
+  noBtn.addEventListener('mouseenter', moveNoButton);
+  noBtn.addEventListener('touchstart', (e) => { e.preventDefault(); moveNoButton(); });
+  noBtn.addEventListener('click', moveNoButton);
+
+  giftBtn.addEventListener('click', () => {
+    confetti(45);
+    hearts(28);
+    openModal(messages.gift.title, messages.gift.text, '🎁💗');
+  });
+
+  closeModal.addEventListener('click', () => modal.classList.remove('show'));
+  modal.addEventListener('click', e => { if(e.target === modal) modal.classList.remove('show'); });
+
+  musicBtn.addEventListener('click', () => {
+    musicOn = !musicOn;
+    musicBtn.textContent = musicOn ? '🔊 Musik: ON' : '🔇 Musik: OFF';
+    showToast(musicOn ? 'Musik dinyalakan 🎵' : 'Musik dimatikan 🔇');
+  });
+
+  const backBtn = document.getElementById('backBtn');
+  backBtn.addEventListener('click', () => {
+    const hero = document.querySelector('.hero');
+    const pageTwo = document.getElementById('pageTwo');
+    pageTwo.classList.remove('active');
+    pageTwo.setAttribute('aria-hidden', 'true');
+    hero.classList.remove('hidden');
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  });
+
+  // Dekorasi hati otomatis
+  hearts(12);
+  setInterval(() => hearts(2), 2500);
+
+  // Efek parallax ringan
+  document.addEventListener('mousemove', e => {
+    const x = (e.clientX / innerWidth - .5) * 8;
+    const y = (e.clientY / innerHeight - .5) * 5;
+    document.querySelector('.character').style.transform =
+      `translate(${x}px,${y}px)`;
+  });
+})();
+</script>
+</body>
+</html>
